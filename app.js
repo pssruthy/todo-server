@@ -4,7 +4,7 @@ const redis = require('redis');
 const Db = require('./Db');
 const { getDefaultStatus, getNextStatus } = require('./status');
 
-const REDIS_URL = 6379;
+const REDIS_URL = process.env.REDIS_URL || 6379;
 const app = express();
 const redisClient = redis.createClient(REDIS_URL);
 const db = new Db(redisClient);
